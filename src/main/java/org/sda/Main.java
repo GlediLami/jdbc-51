@@ -13,7 +13,9 @@ public class Main {
 
         Statement statement = connection.createStatement();
 
-        int affectedRows = statement.executeUpdate("UPDATE students set department = 'Math' WHERE student_name = 'Gledis'");
+        //int affectedRows = statement.executeUpdate("UPDATE students set department = 'Math' WHERE student_name = 'Gledis'");
+        //int affectedRows = statement.executeUpdate("insert into students values ('Sergio', 'IT');");
+        int affectedRows = statement.executeUpdate("delete from students where department = 'Math'");
 
         System.out.println("Rows affected from update operation: "  + affectedRows);
 
