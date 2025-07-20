@@ -12,9 +12,8 @@ public class PreparedStatementExercise {
         System.out.println("Connected succesfully!");
 
         PreparedStatement pstm = connection
-                .prepareStatement("INSERT INTO users(name,email) VALUES (?, ?)");
-        pstm.setString(1, "Alice");
-        pstm.setString(2, "alice@example.com");
+                .prepareStatement("DELETE FROM USERS WHERE ID = ?");
+        pstm.setInt(1, 1);
         pstm.executeUpdate();
 
     }
