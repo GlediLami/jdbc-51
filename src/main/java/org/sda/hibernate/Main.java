@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -17,12 +19,17 @@ public class Main {
         try {
 
             Employee employee = new Employee(); // Create / populate Employee object
-            employee.setName("Gledis");
-            employee.setSalary(15);
+            employee.setName("GLEDIS");
+            employee.setSalary(150);
+
+            Employee employee2 = new Employee(); // Create / populate Employee object
+            employee2.setName("TEST");
+            employee2.setSalary(1500);
 
             session.beginTransaction(); // Begin a database transaction
 
             session.persist(employee); // Save the entity in the database
+            session.persist(employee2);
 
             session.getTransaction().commit(); // Commit the transaction
 
@@ -32,11 +39,22 @@ public class Main {
             session.beginTransaction();
 
 
-            Employee dbEmployee = session.find(Employee.class, employee.getId());
+            List<Employee> dbEmployee = session.createQuery("FROM Employee").getResultList();
 
             System.out.println("Database result: " + dbEmployee);
 
+            for (Employee emp : dbEmployee){
+                System.out.println(emp);
+            }
+
             session.getTransaction().commit();
+
+
+
+
+
+
+
 
 
 
