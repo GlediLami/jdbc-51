@@ -1,4 +1,4 @@
-package org.sda;
+package org.sda.jdbc;
 
 import java.sql.*;
 
