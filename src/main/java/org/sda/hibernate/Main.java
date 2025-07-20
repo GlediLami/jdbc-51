@@ -39,24 +39,35 @@ public class Main {
             session.beginTransaction();
 
 
-            List<Employee> dbEmployee = session.createQuery("FROM Employee").getResultList();
+//            List<Employee> dbEmployee = session.createQuery("FROM Employee").getResultList();
+//
+//            System.out.println("Database result: " + dbEmployee);
+//
+//            for (Employee emp : dbEmployee){
+//                System.out.println(emp);
+//            }
 
-            System.out.println("Database result: " + dbEmployee);
+            int employeeId = 2;
+            Employee dbEmployee = session.find(Employee.class, employeeId);
+            dbEmployee.setSalary(5000);
+            System.out.println("JUST UPDATED THE EMPLOYEE");
 
-            for (Employee emp : dbEmployee){
-                System.out.println(emp);
-            }
 
             session.getTransaction().commit();
 
 
 
+            session = factory.openSession();
+
+            session.beginTransaction();
 
 
+            System.out.println("GOING TO DELETE HIM");
 
 
+            session.remove(dbEmployee);
 
-
+            session.getTransaction().commit();
 
 
 
