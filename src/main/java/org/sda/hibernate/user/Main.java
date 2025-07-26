@@ -1,5 +1,8 @@
 package org.sda.hibernate.user;
 
+import com.mysql.cj.Session;
+import org.hibernate.SessionFactory;
+
 import java.util.List;
 
 public class Main {
