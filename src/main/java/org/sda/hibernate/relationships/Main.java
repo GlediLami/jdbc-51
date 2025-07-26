@@ -12,8 +12,7 @@ public class Main {
     public static void main(String[] args) {
         // Create session factory
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Department.class)
-                .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(User.class)
                 .buildSessionFactory();
 
         // Create session
